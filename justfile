@@ -31,6 +31,7 @@ target-arch := if target =~ "x86_64" { "x64"
     } else if target =~ "i[56]86" { "x86"
     } else if target =~ "aarch64" { "arm64"
     } else if target =~ "armv7" { "arm32"
+    } else if target =~ "riscv64gc" { "riscv64"
     } else { "unknown" }
 target-libc := if target =~ "gnu" { "gnu"
     } else if target =~ "musl" { "musl"

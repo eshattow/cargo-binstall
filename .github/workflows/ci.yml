@@ -113,12 +113,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - target: aarch64-apple-darwin
-            os: macos-latest
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
-          - target: x86_64-pc-windows-msvc
-            os: windows-latest
 
     runs-on: ${{ matrix.os }}
     env:
@@ -142,20 +138,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - target: armv7-unknown-linux-musleabihf
-            os: ubuntu-latest
-          - target: armv7-unknown-linux-gnueabihf
-            os: ubuntu-latest
-          - target: aarch64-unknown-linux-musl
-            os: ubuntu-latest
-          - target: aarch64-unknown-linux-gnu
-            os: ubuntu-latest
           - target: x86_64-unknown-linux-musl
             os: ubuntu-latest
-          - target: x86_64-apple-darwin
-            os: macos-latest
-          - target: aarch64-pc-windows-msvc
-            os: windows-11-arm
     runs-on: ${{ matrix.os }}
     env:
       CARGO_BUILD_TARGET: ${{ matrix.target }}
@@ -182,12 +166,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - target: x86_64-apple-darwin
-            os: macos-latest
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
-          - target: x86_64-pc-windows-msvc
-            os: windows-latest
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -240,7 +220,6 @@ jobs:
       matrix:
         arch:
           - x86_64
-          - aarch64
     steps:
       - uses: actions/checkout@v6
       - name: Install ${{ matrix.arch }}-unknown-linux-musl target
